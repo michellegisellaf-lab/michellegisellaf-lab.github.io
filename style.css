@@ -1,0 +1,122 @@
+/* ---------- Basic reset ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #6f8f3a; /* green shown while the grass image loads */
+  overflow-x: hidden;
+}
+
+/* ---------- The grass background ----------
+   The design is 1440 x 1024, so the stage keeps that same shape.
+   Everything inside is placed with percentages, so it scales
+   with the window. */
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 1024;
+  background-image: url("images/grass.jpg");
+  background-size: cover;
+  background-position: center 55%;  /* grass photo is tall, so this picks which part shows */
+  overflow: hidden;
+}
+
+/* ---------- Pink heading ---------- */
+.title {
+  position: absolute;
+  left: 11.5%;
+  top: 7.5%;
+  margin: 0;
+  font-size: 5.9vw;   /* vw = percent of the window width, so text scales */
+  font-weight: 700;
+  line-height: 1.38;
+  color: #ff9cf5;
+}
+
+/* ---------- Star ---------- */
+.star {
+  position: absolute;
+  left: 28.8%;
+  top: 40.5%;
+  width: 17.8%;
+}
+
+/* ---------- Stamp photo ----------
+   The stamp is centered at a point, then tilted 20 degrees.
+   The photo sits on top of the blank stamp image. */
+.stamp {
+  position: absolute;
+  left: 26.4%;
+  top: 75%;
+  width: 20.2%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.stamp-frame {
+  display: block;
+  width: 100%;
+}
+
+/* object-fit: cover crops the wide photo to fit the stamp window.
+   object-position picks which part of the photo stays in view. */
+.stamp-photo {
+  position: absolute;
+  left: 18.9%;
+  top: 24%;
+  width: 62.2%;
+  height: 50.4%;
+  object-fit: cover;
+  object-position: 41% center;
+}
+
+/* ---------- Envelope + letter ---------- */
+/* The envelope image is upright, so we tilt the whole box 11 degrees.
+   Everything inside it (including the text) tilts with it. */
+.envelope {
+  position: absolute;
+  left: 68.9%;
+  top: 47.7%;
+  width: 42.4%;
+  transform: translate(-50%, -50%) rotate(-11deg);
+}
+
+.envelope-img {
+  display: block;
+  width: 100%;
+}
+
+/* The text sits on top of the blank letter */
+.letter-text {
+  position: absolute;
+  left: 15.5%;
+  top: 19%;
+  width: 75%;
+  color: #1a1a4b;
+  font-size: 2.05vw;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.letter-text p {
+  margin: 0;
+}
+
+.letter-text .name {
+  margin-bottom: 1.2em;
+}
+
+.letter-text .about {
+  padding-left: 0.8em;
+}
+
+/* ---------- Fish patches (sit on top of the letter corner) ---------- */
+.fish {
+  position: absolute;
+  z-index: 2;
+  left: 77.9%;
+  top: 6.3%;
+  width: 14%;
+}
